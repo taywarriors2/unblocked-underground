@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<center>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+  <head>
+    <h1>unblocked games</h1>
+  </head>
+  <body>
+    
+
+      <p>
+    
+      <a href="5">cookie Clicker</a>
+      <a href="2">retrobowl</a>
+      <a href="4">pokemon fire red</a>
+      <a href="3">super mario world</a>
+      <a href="6">basket random</a>
+      <a href="7">Super mario 64</a>
+      <a href="8">block blast</a>
+      <a href="9">sonic the hedgehog</a>
+      
+      <a id="aboutblank" onclick="aboutblank()" class="fade-in"><button id="aboutblank" class="fade-in homebutton">Open in
+    about:blank</button></a>
+
+
+      </p>
+  </body>
+<style>
+ h1 {
+  background: #000000;
+  padding: 0 24px;
+  margin: 0;
+  height: 24vh;
+  color: rgb(194, 13, 13);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  color: rgb(247, 0, 0);
+  justify-content: center;
+  height: 100vh
+  align-items: center;
+  padding: 0 55px;
+}
+a:link {
+  text-decoration: none;
+  background-color: rgb(0, 0, 0);
+}
+body {
+  background: #000000;
+  padding: 0 24px;
+  margin: 0;
+  height: 100vh;
+  color: rgb(194, 13, 13);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+head {
+  background: #000000;
+  padding: 0 24px;
+  margin: 0;
+  height: 0vh;
+  color: rgb(194, 13, 13);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+
+<script>
+function aboutblank() {
+  let url = window.location.href;
+  var w = window.open("about:blank", "_blank");
+  w.document.write('<iframe style="position: absolute;top: 0px;bottom: 0px;right: 0px;width: 100%;border: none;margin: 0;padding: 0;overflow: hidden;z-index: 99999;height: 100%;" src="' + url + '"></iframe>');
+  window.close('', '_parent', '');
+
+}
+function about() {
+  window.location.assign("/about");
+}
+
+</script>
+</center>
+</html>
+
