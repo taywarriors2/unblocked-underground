@@ -27,6 +27,17 @@
       text-align: center;
     }
 
+    #searchBar {
+      margin-top: 20px;
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      border: 1px solid #f00;
+      background-color: #111;
+      color: #fff;
+      font-size: 16px;
+    }
+
     .links {
       display: flex;
       flex-direction: column;
@@ -70,7 +81,10 @@
 </head>
 <body>
   <h1>Unblocked Games</h1>
-  <div class="links">
+
+  <input type="text" id="searchBar" placeholder="Search games...">
+
+  <div class="links" id="gameLinks">
     <a href="cookieclicker.html">Cookie Clicker</a>
     <a href="retrobowl.html">Retro Bowl</a>
     <a href="pokemonfirered.html">Pokemon Fire Red</a>
@@ -99,7 +113,18 @@
         alert("Pop-up blocked. Please allow pop-ups for this site.");
       }
     }
+
+    // Search bar logic
+    const searchBar = document.getElementById('searchBar');
+    const links = document.querySelectorAll('#gameLinks a');
+
+    searchBar.addEventListener('input', function () {
+      const query = searchBar.value.toLowerCase();
+      links.forEach(link => {
+        const text = link.textContent.toLowerCase();
+        link.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    });
   </script>
 </body>
 </html>
-
