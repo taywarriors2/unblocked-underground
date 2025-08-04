@@ -1,93 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<center>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style.css">
-  <head>
-    <h1>unblocked games</h1>
-  </head>
-  <body>
-    
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css" />
+  <title>Unblocked Games</title>
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      color: #c20d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: Arial, sans-serif;
+    }
 
-      <p>
-    
-      <a href="cookieclicker.html">cookie Clicker</a>
-      <a href="retrobowl.html">retrobowl</a>
-      <a href="pokemonfirered.html">pokemon fire red</a>
-      <a href="pokemonemerald.html">pokemon emerald</a>
-      <a href="basketrandom.html">basket random</a>
-      <a href="supermario.html">Super mario 64</a>
-      <a href="motox3m.html">moto x3m</a>
-      <a href="snowrider.html">snow rider 3d</a>
-      <a href="1v1lol.html">1v1 lol</a>
-      <a href="slope.html">slope</a>
+    h1 {
+      background: #000;
+      padding: 24px;
+      margin: 0;
+      color: #c20d0d;
+      text-align: center;
+    }
 
-        
-        <a id="aboutblank" onclick="aboutblank()" class="fade-in"><button id="aboutblank" class="fade-in homebutton">Open in
-    about:blank</button></a>
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      text-align: center;
+    }
 
+    .links a {
+      color: #f70000;
+      background-color: #000;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
 
-      </p>
-  </body>
-<style>
- h1 {
-  background: #000000;
-  padding: 0 24px;
-  margin: 0;
-  height: 24vh;
-  color: rgb(194, 13, 13);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-a {
-  color: rgb(247, 0, 0);
-  justify-content: center;
-  height: 100vh
-  align-items: center;
-  padding: 0 55px;
-}
-a:link {
-  text-decoration: none;
-  background-color: rgb(0, 0, 0);
-}
-body {
-  background: #000000;
-  padding: 0 24px;
-  margin: 0;
-  height: 100vh;
-  color: rgb(194, 13, 13);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-head {
-  background: #000000;
-  padding: 0 24px;
-  margin: 0;
-  height: 0vh;
-  color: rgb(194, 13, 13);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+    .links a:hover {
+      background-color: #111;
+    }
 
+    .aboutblank-btn {
+      margin-top: 30px;
+    }
 
-<script>
-function aboutblank() {
-  let url = window.location.href;
-  var w = window.open("about:blank", "_blank");
-  w.document.write('<iframe style="position: absolute;top: 0px;bottom: 0px;right: 0px;width: 100%;border: none;margin: 0;padding: 0;overflow: hidden;z-index: 99999;height: 100%;" src="' + url + '"></iframe>');
-  window.close('', '_parent', '');
+    button.homebutton {
+      background-color: #222;
+      color: #f00;
+      border: 1px solid #f00;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-}
-function about() {
-  window.location.assign("/about");
-}
+    button.homebutton:hover {
+      background-color: #f00;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Unblocked Games</h1>
+  <div class="links">
+    <a href="cookieclicker.html">Cookie Clicker</a>
+    <a href="retrobowl.html">Retro Bowl</a>
+    <a href="pokemonfirered.html">Pokemon Fire Red</a>
+    <a href="pokemonemerald.html">Pokemon Emerald</a>
+    <a href="basketrandom.html">Basket Random</a>
+    <a href="supermario.html">Super Mario 64</a>
+    <a href="motox3m.html">Moto X3M</a>
+    <a href="snowrider.html">Snow Rider 3D</a>
+    <a href="1v1lol.html">1v1 LOL</a>
+    <a href="slope.html">Slope</a>
+  </div>
 
-</script>
-</center>
+  <div class="aboutblank-btn">
+    <button onclick="openInAboutBlank()" class="homebutton">Open in about:blank</button>
+  </div>
+
+  <script>
+    function openInAboutBlank() {
+      const url = window.location.href;
+      const w = window.open("about:blank", "_blank");
+      if (w) {
+        w.document.write(`
+          <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" src="${url}"></iframe>
+        `);
+      } else {
+        alert("Pop-up blocked. Please allow pop-ups for this site.");
+      }
+    }
+  </script>
+</body>
 </html>
 
