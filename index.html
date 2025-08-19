@@ -3,79 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="src/style.css" />
   <title>Unblocked Games</title>
   <style>
     body {
-      background: #000;
+      background: linear-gradient(180deg, #000 0%, #111 100%);
       margin: 0;
       padding: 0;
-      height: 100vh;
+      min-height: 100vh;
       color: #c20d0d;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       font-family: Arial, sans-serif;
     }
 
     h1 {
-      background: #000;
       padding: 24px;
       margin: 0;
       color: #c20d0d;
       text-align: center;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
     }
 
     #searchBar {
-      margin-top: 20px;
+      margin: 20px auto;
       padding: 10px;
-      width: 300px;
-      border-radius: 5px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
       border: 1px solid #f00;
       background-color: #111;
       color: #fff;
       font-size: 16px;
+      outline: none;
+      transition: box-shadow 0.2s;
+    }
+    #searchBar:focus {
+      box-shadow: 0 0 10px #f00;
     }
 
     .links {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
       margin-top: 20px;
       text-align: center;
+      max-width: 800px;
     }
 
     .links a {
       color: #f70000;
       background-color: #000;
       text-decoration: none;
-      padding: 10px;
-      border-radius: 4px;
-      transition: background-color 0.3s;
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: background-color 0.3s, transform 0.2s;
+      display: inline-block;
+      font-size: 15px;
     }
 
     .links a:hover {
       background-color: #111;
+      transform: scale(1.05);
     }
 
     .aboutblank-btn {
-      margin-top: 30px;
+      margin: 40px 0;
     }
 
     button.homebutton {
       background-color: #222;
       color: #f00;
       border: 1px solid #f00;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 12px 24px;
+      border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     button.homebutton:hover {
       background-color: #f00;
       color: #000;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -90,7 +102,7 @@
     <a href="pokemonfirered.html">Pokemon Fire Red</a>
     <a href="pokemonemerald.html">Pokemon Emerald</a>
     <a href="basketrandom.html">Basket Random</a>
-    <a href="supermario.html">Super Mario 64</a>
+    <a href="supermario64.html">Super Mario 64</a>
     <a href="motox3m.html">Moto X3M</a>
     <a href="snowrider.html">Snow Rider 3D</a>
     <a href="1v1lol.html">1v1 LOL</a>
@@ -122,9 +134,88 @@
       const query = searchBar.value.toLowerCase();
       links.forEach(link => {
         const text = link.textContent.toLowerCase();
-        link.style.display = text.includes(query) ? 'block' : 'none';
+        link.style.display = text.includes(query) ? 'inline-block' : 'none';
       });
     });
   </script>
+  
+  <br>
+  <div class="input-container fade-in">
+    <input type="text" id="link" class="fade-in" placeholder="YouTube link here" />
+  </div>
+<br>
+<button class="fade-in homebutton" id="launch" title="Launch"> LAUNCH </button>
+<br>
+
+
+  
+<button class="fade-in homebutton" id="copy" onclick="copy_link()" title="Copy"> COPY </button>
+<br>
+
+<h3 id="offtext"class="fade-in"> The video(s) will show down below </h3> 
+
+  <div id="feedbackMessage"></div>
+  
+  <!-- <div class="main-content-wrapper"> -->
+    <div class="container fade-in">
+      <div id="videoPlayersContainer">
+        </div>
+    </div>
+  <!-- </div> -->
+
+
+<br>
+<div class="fade-in" id="seperator">
+  <span> -------------------------------------------------- </span>
+</div>
+
+  
+
+  </div>
+  <script defer src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script defer src="particles.js"></script>
+  <script defer src="animations.js"></script>
+
+  <script>
+
+function setFavicons(favImg) {
+  let headTitle = document.querySelector("head");
+  let setFavicon = document.createElement("link");
+  setFavicon.setAttribute("rel", "shortcut icon");
+  setFavicon.setAttribute("href", favImg);
+  headTitle.appendChild(setFavicon);
+}
+
+  
+// About:Blank button loader
+function aboutblank() {
+  let url = window.location.href;
+  var w = window.open("about:blank", "_blank");
+  w.document.write('<iframe style="position: absolute;top: 0px;bottom: 0px;right: 0px;width: 100%;border: none;margin: 0;padding: 0;overflow: hidden;z-index: 99999;height: 100%;" src="' + url + '"></iframe>');
+  w.document.close(); // Important to close the document for the iframe to load correctly
+  // window.close('', '_parent', '');
+
+} 
+
+// Header Navigation
+function suggestions() {
+  window.open("https://forms.gle/3TEjjsnqWUXgo5kQ7", '_blank').focus();
+}
+
+function home() {
+  window.location.assign("/");
+}
+
+function bookmarklets() {
+  window.location.assign("/bookmarklets");
+}
+
+function about() {
+  window.location.assign("/about");
+}
+
+</script>
+</body>
 </body>
 </html>
